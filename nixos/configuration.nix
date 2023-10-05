@@ -184,7 +184,8 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
   # Docker virtualization
-  virtualisation.docker.enable = true;  
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableNvidia = true;
   virtualisation.docker.liveRestore = false;
 
   # Experimental features

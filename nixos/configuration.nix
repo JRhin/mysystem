@@ -165,6 +165,9 @@
     lf
     neovim
     python3
+    (python3.withPackages(ps: with ps; [
+	python-lsp-server
+    ]))
     RStudio-with-my-packages
     telegram-desktop
   ];

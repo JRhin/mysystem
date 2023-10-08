@@ -140,19 +140,32 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs;
+  let
+  	RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [
+	ggplot2
+	dplyr
+	xts
+	igraph
+	]; };
+  in
+  [
     bottom
     discord
     gh
     git
+    helix
     htop
     lazygit
     lf
     neovim
     python3
+    RStudio-with-my-packages
     telegram-desktop
   ];
 

@@ -11,7 +11,7 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
-  homer-manager = {
+  home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       jrhin = import ./home.nix;

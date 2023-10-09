@@ -169,6 +169,7 @@
     gh
     git
     helix
+    home-manager
     htop
     lazygit
     lf

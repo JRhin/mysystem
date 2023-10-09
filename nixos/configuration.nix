@@ -2,13 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
+
+  homer-manager = {
+    extraSpecialArgs = { inherit inputs; }
+    users = {
+      jrhin = import ./home.nix;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -148,14 +156,15 @@
   environment.systemPackages = with pkgs;
   let
   	RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [
-	ggplot2
-	dplyr
-	xts
-	igraph
-	]; };
+	      ggplot2
+	      dplyr
+	      xts
+	      igraph
+	  ]; };
   in
   [
     bottom
+    cava
     discord
     gh
     git
@@ -164,9 +173,8 @@
     lazygit
     lf
     neovim
-    python3
-    (python3.withPackages(ps: with ps; [
-	python-lsp-server
+    python3 (python3.withPackages(ps: with ps; [
+	              python-lsp-server
     ]))
     RStudio-with-my-packages
     telegram-desktop

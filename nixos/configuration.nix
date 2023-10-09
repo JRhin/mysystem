@@ -167,18 +167,20 @@
     cava
     discord
     gh
-    git
     helix
     home-manager
     htop
     lazygit
     lf
+    mpv
     neovim
     python3 (python3.withPackages(ps: with ps; [
 	              python-lsp-server
     ]))
     RStudio-with-my-packages
+    sxiv
     telegram-desktop
+    zathura
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

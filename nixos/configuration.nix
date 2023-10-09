@@ -12,7 +12,7 @@
     ];
 
   homer-manager = {
-    extraSpecialArgs = { inherit inputs; }
+    extraSpecialArgs = { inherit inputs; };
     users = {
       jrhin = import ./home.nix;
     };

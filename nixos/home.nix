@@ -40,6 +40,58 @@
     '';
   };
 
+  programs.helix = {
+    enable = true;
+
+    settings = {
+      theme = "catppuccin_mocha";
+      
+      editor = {
+        line-number = "relative";
+        cursorline = true;
+        color-modes = true;
+        idle-timeout = 0;
+        completion-trigger-len = 1;
+        bufferline = "multiple";
+        auto-save = true;
+
+        statusline = {
+          left = [
+            "mode"
+            "spinner"
+            "version-control"
+            "file-name"
+            "file-modification-indicator"
+            "file-encoding"
+            "file-line-ending"
+            "file-type"
+          ];
+
+          right = [
+            "workspace-diagnostics"
+            "selections"
+            "position"
+          ];
+        };
+
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+
+        indent-guides = {
+          render = true;
+          character = "|";
+        };
+
+        lsp = {
+          display-messages = true;
+        };
+      };
+    };
+  };
+
   xdg.mimeApps.defaultApplications = {
     "application/pdf" = ["zathura.desktop"];
     "image/*" = ["sxiv.desktop"];

@@ -167,7 +167,6 @@
     cava
     discord
     gh
-    helix
     home-manager
     htop
     lazygit

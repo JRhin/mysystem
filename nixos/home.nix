@@ -40,6 +40,15 @@
     '';
   };
 
+  programs.kitty = {
+    enable = true;
+    font.name = "FiraCode Nerd Font Mono";
+    font.package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+    font.size = 12.0;
+    shellIntegration.enableZshIntegration = true;
+    theme = "Catppuccin-Mocha";
+  };
+
   programs.helix = {
     enable = true;
 

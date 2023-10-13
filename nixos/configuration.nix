@@ -163,6 +163,7 @@
 	  ]; };
   in
   [
+    awscli2
     bottom
     cava
     discord

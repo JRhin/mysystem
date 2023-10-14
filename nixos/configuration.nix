@@ -87,7 +87,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -148,8 +148,15 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  
-  
+
+  # Shell
+  programs.zsh.enable = true;
+  environment.binsh = "${pkgs.dash}/bin/dash";
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -173,9 +180,9 @@
     lazygit
     lf
     mpv
-    neovim
-    python3 (python3.withPackages(ps: with ps; [
-	              python-lsp-server
+    nil
+    python311 (python311.withPackages(ps: with ps; [
+      python-lsp-server
     ]))
     RStudio-with-my-packages
     sxiv

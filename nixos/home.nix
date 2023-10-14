@@ -9,8 +9,9 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "helix";
+    EDITOR = "hx";
     SHELL = "zsh";
+    TERMINAL = "kitty";
   };
 
   home.file = {
@@ -98,6 +99,17 @@
           display-messages = true;
         };
       };
+    };
+
+    languages = {
+      language = [
+        {
+          name = "python";
+        }
+        {
+          name = "nix";
+        }
+      ];
     };
   };
 

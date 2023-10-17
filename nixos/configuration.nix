@@ -163,10 +163,11 @@
   environment.systemPackages = with pkgs;
   let
   	RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [
-	      ggplot2
 	      dplyr
-	      xts
+	      ggplot2
 	      igraph
+        poweRlaw
+	      xts
 	  ]; };
   in
   [

@@ -64,6 +64,7 @@
         completion-trigger-len = 1;
         bufferline = "multiple";
         auto-save = true;
+        soft-wrap.enable = true;
 
         statusline = {
           left = [
@@ -96,6 +97,7 @@
         };
 
         lsp = {
+          display-inlay-hints = true;
           display-messages = true;
         };
       };

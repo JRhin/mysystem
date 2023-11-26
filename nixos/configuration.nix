@@ -163,14 +163,19 @@
   environment.systemPackages = with pkgs;
   let
   	RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [
+        circlize
+        #"data.table"
 	      dplyr
 	      ggplot2
 	      igraph
         poweRlaw
+        RColorBrewer
+        tidyverse
 	      xts
 	  ]; };
   in
   [
+    anki
     awscli2
     bottom
     cava
@@ -182,6 +187,7 @@
     lf
     mpv
     nil
+    obsidian
     python311 (python311.withPackages(ps: with ps; [
       python-lsp-server
     ]))
@@ -189,6 +195,7 @@
     sxiv
     telegram-desktop
     zathura
+    zellij
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
